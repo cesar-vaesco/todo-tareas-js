@@ -12,6 +12,8 @@ export class TodoList {
   }
 
   eliminarTodo(id) {
+    // Esta instrucción filtra al todo que se recibe por id y lo quita del arreglo creando un nuevo arreglo y sobreescribiendo sus valores
+    this.todos = this.todos.filter(todo => todo.id != id);
 
   }
 

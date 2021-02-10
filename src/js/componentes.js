@@ -72,6 +72,11 @@ divTodoList.addEventListener('click', (event) => {
         todoList.marcarCompletado( todoId );
         //tachar tarea realizada
         todoElemento.classList.toggle('completed');
+    } else if(nombreElemento.includes('button')){
+        //eliminamos el elemento que se encuentra en el arreglo
+        todoList.eliminarTodo( todoId );
+        //eliminamos el html creado donde se visualizaba el todo
+        divTodoList.removeChild( todoElemento );
     }
 
     console.log( todoList );
