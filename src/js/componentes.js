@@ -10,7 +10,7 @@ const txtInput = document.querySelector('.new-todo');
 export const crearTodoHtml = (todo) => {
 
     const htmlTodo = `
-        <li class="${(todo.completado) ? 'completed' : ''}" data-id=${todo.id}}>
+        <li class="${(todo.completado) ? 'completed' : ''}" data-id=${todo.id}>
             <div class="view">
                 <input class="toggle" type="checkbox" ${(todo.completado) ? 'checked' : ''}>
                     <label>${todo.tarea}</label>
@@ -32,6 +32,7 @@ export const crearTodoHtml = (todo) => {
 
 
 // Eventos
+
 /*-- El evento keyup se dispara cuando se suelta la tecla --*/
 /*-- event nos permite identificar que tecla oprime el usuario --*/
 txtInput.addEventListener('keyup', (event) => {
@@ -49,4 +50,29 @@ txtInput.addEventListener('keyup', (event) => {
         // Pugar el input
         txtInput.value = '';
     }
-})
+});
+
+divTodoList.addEventListener('click', (event) => {
+    // console.log('click'); identificar que se dispara el evento
+    // console.log(event); identificar el evento
+    // console.log(event.target); identificar a donde se da click
+    // console.log(event.target.localName); identificar exactamente el elemento donde se da click
+
+    const nombreElemento = event.target.localName;
+    //Referencia completa el elemento  que se quiere clickear para acompletar la tarea
+    const todoElemento = event.target.parentElement.parentElement;
+    // extraer id del todo
+    const todoId = todoElemento.getAttribute('data-id');
+    // console.log(todoElemento);
+    // console.log(todoId);
+
+
+    if (nombreElemento.includes( 'input')) {
+        //marcar tarea-todo acompletado
+        todoList.marcarCompletado( todoId );
+        //tachar tarea realizada
+        todoElemento.classList.toggle('completed');
+    }
+
+    console.log( todoList );
+});
