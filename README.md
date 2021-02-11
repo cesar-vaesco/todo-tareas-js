@@ -15,5 +15,4 @@ Y para crear nuevamente el DIST
 npm start
 ```
 
-Desplegado en:  [https://cesar-vaesco.github.io/webpack-start/](https://cesar-vaesco.github.io/webpack-start/).
-
+Desplegado en:  [https://cesar-vaesco.github.io/todo-tareas-js/](https://cesar-vaesco.github.io/todo-tareas-js/).
