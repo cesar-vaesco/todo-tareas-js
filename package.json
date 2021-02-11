@@ -1,7 +1,7 @@
 {
-  "name": "webpack-inicial",
+  "name": "app-todo",
   "version": "1.0.0",
-  "description": "Este es un cascaron de un proyecto de webpack",
+  "description": "App de tareas - todo ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
     "build:dev": "webpack --config webpack.config.js",
     "start": "webpack-dev-server --open --port=8080"
   },
-  "author": "Fernando Herrera",
+  "author": "César Vargas",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.12.9",
