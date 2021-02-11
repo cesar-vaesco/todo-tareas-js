@@ -4,8 +4,10 @@ import { todoList } from '../index';
 
 // Referencias al html
 const divTodoList = document.querySelector('.todo-list');
-
 const txtInput = document.querySelector('.new-todo');
+const txtBorrar = document.querySelector('.clear-completed');
+
+
 
 export const crearTodoHtml = (todo) => {
 
@@ -67,17 +69,32 @@ divTodoList.addEventListener('click', (event) => {
     // console.log(todoId);
 
 
-    if (nombreElemento.includes( 'input')) {
+    if (nombreElemento.includes('input')) {
         //marcar tarea-todo acompletado
-        todoList.marcarCompletado( todoId );
+        todoList.marcarCompletado(todoId);
         //tachar tarea realizada
         todoElemento.classList.toggle('completed');
-    } else if(nombreElemento.includes('button')){
+    } else if (nombreElemento.includes('button')) {
         //eliminamos el elemento que se encuentra en el arreglo
-        todoList.eliminarTodo( todoId );
+        todoList.eliminarTodo(todoId);
         //eliminamos el html creado donde se visualizaba el todo
-        divTodoList.removeChild( todoElemento );
+        divTodoList.removeChild(todoElemento);
     }
 
-    console.log( todoList );
+    console.log(todoList);
+});
+
+txtBorrar.addEventListener('click', () => {
+
+    todoList.eliminarCompletados();
+
+    for (let i = divTodoList.children.length - 1; i >= 0; i--) {
+        const elemento = divTodoList.children[i];
+        console.log(elemento);
+
+        if (elemento.classList.contains('completed')) {
+            divTodoList.removeChild(elemento);
+        }
+    }
+
 });
