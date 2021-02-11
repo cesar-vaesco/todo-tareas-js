@@ -81,7 +81,7 @@ divTodoList.addEventListener('click', (event) => {
         divTodoList.removeChild(todoElemento);
     }
 
-    console.log(todoList);
+    //console.log(todoList);
 });
 
 txtBorrar.addEventListener('click', () => {
@@ -89,9 +89,10 @@ txtBorrar.addEventListener('click', () => {
     todoList.eliminarCompletados();
 
     for (let i = divTodoList.children.length - 1; i >= 0; i--) {
+        // Se selecciona de la lista de todos los todo que esten seleccionados como  completado
         const elemento = divTodoList.children[i];
-        console.log(elemento);
-
+        //console.log(elemento);
+        // Se pregunta si el elemento contienen la clase completed, si la tiene se solicita que se remueva de la lista
         if (elemento.classList.contains('completed')) {
             divTodoList.removeChild(elemento);
         }

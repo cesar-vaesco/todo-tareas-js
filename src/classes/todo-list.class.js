@@ -9,12 +9,13 @@ export class TodoList {
 
   nuevoTodo(todo) {
     this.todos.push(todo);
+    this.guardarLocalStorage();
   }
 
   eliminarTodo(id) {
     // Esta instrucción filtra al todo que se recibe por id y lo quita del arreglo creando un nuevo arreglo y sobreescribiendo sus valores
     this.todos = this.todos.filter(todo => todo.id != id);
-
+    this.guardarLocalStorage();
   }
 
   marcarCompletado(id) {
@@ -22,6 +23,7 @@ export class TodoList {
       //console.log(id, todo.id);
       if (todo.id == id) {
         todo.completado = !todo.completado;
+        this.guardarLocalStorage();
         break;
       }
     }
@@ -31,4 +33,13 @@ export class TodoList {
     // El filter regresara todos los todo que NO esten completados
     this.todos = this.todos.filter(todo => !todo.completado);
   }
+
+
+  guardarLocalStorage() {
+
+    localStorage.setItem('todo', JSON.stringify(this.todos));
+
+  }
+
+  cargarLocalStorage() { }
 }

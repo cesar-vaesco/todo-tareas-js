@@ -6,14 +6,22 @@ import './styles.css';
 
 export const todoList = new TodoList();
 
-const tarea = new Todo('Aprender JavaScript......');
+// const tarea = new Todo('Aprender JavaScript......');
 
 
 
 
-todoList.nuevoTodo( tarea );
+// todoList.nuevoTodo(tarea);
 
 
-console.log(todoList);
+// //console.log(todoList);
 
-crearTodoHtml( tarea );
+// crearTodoHtml(tarea);
+
+// // Establecer valor en localStorage
+// localStorage.setItem('mi-key', 'ABC123');
+
+// // Borrar valor con localStorage
+// setTimeout( () => {
+//   localStorage.removeItem('mi-key')
+// }, 1500);
