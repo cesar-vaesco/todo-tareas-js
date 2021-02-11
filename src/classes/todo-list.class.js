@@ -3,8 +3,8 @@ export class TodoList {
 
   constructor() {
 
-    this.todos = [];
-
+    //this.todos = [];
+    this.cargarLocalStorage();
   }
 
   nuevoTodo(todo) {
@@ -38,8 +38,23 @@ export class TodoList {
   guardarLocalStorage() {
 
     localStorage.setItem('todo', JSON.stringify(this.todos));
-
+    //JSON.Stringify convierte un string a un objeto
   }
 
-  cargarLocalStorage() { }
+  cargarLocalStorage() {
+// JSON.parse convierte un objeto a su estado original, para el ejemplo un string
+    this.todos = (localStorage.getItem('todo'))
+      ? this.todos = JSON.parse(localStorage.getItem('todo'))
+      : [];
+    // if (localStorage.getItem('todo')) {
+
+    //   this.todos = JSON.parse(localStorage.getItem('todo'));
+    //   console.log('Cargar local', this.todos);
+
+    // } else {
+
+    //   this.todos = [];
+
+    // }
+  }
 }
